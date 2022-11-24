@@ -109,6 +109,23 @@ text_to_be_present_in_element
 WebDriverWait(browser, 12).until(
         EC.text_to_be_present_in_element((By.ID, "тут id"), "тут цена"))
 
+# Проверка ожидаемого результата с помощью assert. Если true, то ничего не выведется. Если false, то выпадет ошибка AssertionError
+assert abs(-42) == -42, 'Должно быть абсолютное число по модулю' # Здесь будет ошибка, но чтобы выпал не голый AssertionError, дал название
+
+# Сравниваем ожидаемый результат с фактическим. В случае false выдаем понятную нам ошибку: форматируем строку с помощью f-strings
+# в кортеже указываем наши переменные (входные/выходные данные)
+def test_input_text(expected_result, actual_result):
+    assert expected_result == actual_result, f"ожидаемый {expected_result}, фактический {actual_result}"
+
+# Поиск по частичному совпадению с помощью in
+s = 'My Name is Julia'
+
+if 'Name' in s:
+    print('Substring found')
+# Необязательно использовать if, можно с помощью assert, тогда это будет выглядеть так:
+assert "login" in browser.current_url, 'сообщение об ошибке'
+
+
 
 
 
