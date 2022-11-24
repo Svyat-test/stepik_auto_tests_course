@@ -12,7 +12,7 @@ class TestPage(unittest.TestCase):
         browser.get(link)
 
         browser.find_element(By.CSS_SELECTOR, "[placeholder='Input your name']").send_keys("Name")
-        browser.find_element(By.CSS_SELECTOR, "[placeholder='Input your email']").send_keys("email")
+        browser.find_element(By.CSS_SELECTOR, "[placeholder='Input your mail']").send_keys("email")
         browser.find_element(By.CSS_SELECTOR, "button.btn").click()
         time.sleep(3)
         welcome_text_elt = browser.find_element(By.TAG_NAME, "h1")
